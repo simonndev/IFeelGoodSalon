@@ -1,0 +1,51 @@
+﻿<fluent:RibbonWindow
+    x:Class="IFeelGoodSalon.Desktop.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:IFeelGoodSalon.Desktop"
+    xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:fluent="urn:fluent-ribbon"
+    xmlns:infrastructure="clr-namespace:IFeelGoodSalon.Infrastructure;assembly=IFeelGoodSalon.Infrastructure"
+    mc:Ignorable="d"
+    Title="Shell" Height="300" Width="300">
+    <DockPanel x:Name="RootLayout">
+        
+        <!-- Fluent Ribbon-Tab at the top -->
+        <fluent:Ribbon prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.RibbonRegion}" 
+                       DockPanel.Dock="Top">
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage>
+                    <fluent:BackstageTabControl>
+                        <fluent:BackstageTabItem Header="New" />
+                        <fluent:BackstageTabItem Header="Print" />
+                        <fluent:Button Header="Blue" />
+                    </fluent:BackstageTabControl>
+                </fluent:Backstage>
+            </fluent:Ribbon.Menu>
+        </fluent:Ribbon>
+
+        <!-- Left-region contains navigation or settings -->
+        <!--<ContentControl x:Name="LeftContent"
+                        prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.LeftContentRegion}"
+                        DockPanel.Dock="Left">
+
+        </ContentControl>-->
+
+        <!-- Right-region contains tip or additional information -->
+        <!--<ContentControl x:Name="RightContent"
+                        prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.RightContentRegion}"
+                        DockPanel.Dock="Right">
+
+        </ContentControl>-->
+
+        <!-- Botton-region contains the status -->
+        <!--<StatusBar DockPanel.Dock="bottom"></StatusBar>-->
+
+        <!-- Workspace contains the main content -->
+        <Grid x:Name="WorkspaceGrid">
+            <ContentControl prism:RegionManager.RegionName="{x:Static infrastructure:RegionNames.MainContentRegion}"></ContentControl>
+        </Grid>
+    </DockPanel>
+</fluent:RibbonWindow>

@@ -1,0 +1,25 @@
+﻿<!-- Make sure this file Build Action is set to Resource instead of Page -->
+<modularity:ModuleCatalog
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:modularity="clr-namespace:Microsoft.Practices.Prism.Modularity;assembly=Microsoft.Practices.Prism.Composition">
+
+    <modularity:ModuleInfo ModuleName="IFeelGoodSalon.SplashScreen"
+                           ModuleType="IFeelGoodSalon.SplashScreen.SplashScreenModule, IFeelGoodSalon.SplashScreen" />
+
+    <!--<modularity:ModuleInfo ModuleName="IFeelGoodSalon.PointOfSaleModule"
+                           ModuleType="IFeelGoodSalon.PointOfSale.PointOfSaleModule, IFeelGoodSalon.PointOfSale">
+        <modularity:ModuleInfo.DependsOn>
+            <sys:String>IFeelGoodSalon.SplashScreen</sys:String>
+        </modularity:ModuleInfo.DependsOn>
+    </modularity:ModuleInfo>-->
+
+    <modularity:ModuleInfo ModuleName="IFeelGoodSalon.Setup"
+                           ModuleType="IFeelGoodSalon.Setup.SetupModule, IFeelGoodSalon.Setup">
+        <modularity:ModuleInfo.DependsOn>
+            <sys:String>IFeelGoodSalon.SplashScreen</sys:String>
+        </modularity:ModuleInfo.DependsOn>
+    </modularity:ModuleInfo>
+
+</modularity:ModuleCatalog>
