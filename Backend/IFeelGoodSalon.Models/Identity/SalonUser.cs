@@ -1,5 +1,4 @@
 ﻿using IFeelGoodSalon.DataPattern.Ef6.Base;
-using IFeelGoodSalon.Models.Base;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;

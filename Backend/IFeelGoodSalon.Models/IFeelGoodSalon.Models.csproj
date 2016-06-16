@@ -58,9 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\EntityBase.cs" />
-    <Compile Include="Base\IActivableEntity.cs" />
     <Compile Include="Base\IEntity.cs" />
-    <Compile Include="Base\ISoftDeleteEntity.cs" />
     <Compile Include="Duration.cs" />
     <Compile Include="Identity\SalonRole.cs" />
     <Compile Include="Identity\SalonUser.cs" />

@@ -1,10 +1,7 @@
-﻿using IFeelGoodSalon.Models.Base;
+﻿using IFeelGoodSalon.DataPattern.Ef6.Base;
+using IFeelGoodSalon.Models.Base;
 using IFeelGoodSalon.Models.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.Models
 {
@@ -20,6 +17,6 @@ namespace IFeelGoodSalon.Models
         public virtual SalonUser ApplicationUser { get; set; }
 
         #endregion
-        
+
     }
 }

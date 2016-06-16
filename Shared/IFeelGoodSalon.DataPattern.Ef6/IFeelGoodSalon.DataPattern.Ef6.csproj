@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\IActivableEntity.cs" />
     <Compile Include="Base\IBusinessService.cs" />
     <Compile Include="Base\IFakeDbContext.cs" />
     <Compile Include="Base\IObservableDbContext.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Base\IQueryLogic.cs" />
     <Compile Include="Base\IRepository.cs" />
     <Compile Include="Base\IRepositoryAsync.cs" />
+    <Compile Include="Base\ISoftDeleteEntity.cs" />
     <Compile Include="Base\IUnitOfWork.cs" />
     <Compile Include="Base\IUnitOfWorkAsync.cs" />
     <Compile Include="BusinessService.cs" />
