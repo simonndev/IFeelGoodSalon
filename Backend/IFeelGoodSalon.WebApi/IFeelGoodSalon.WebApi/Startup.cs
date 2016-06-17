@@ -94,7 +94,7 @@ namespace IFeelGoodSalon.WebApi
         /// <param name="container"></param>
         private static void RegisterComponents(Container container)
         {
-            container.Register<IObservableDbContext, IFeelGoodSalonContext>(Lifestyle.Scoped);
+            container.Register<IObservableDbContextAsync, IFeelGoodSalonContext>(Lifestyle.Scoped);
             container.Register<IUnitOfWorkAsync, UnitOfWork>(Lifestyle.Scoped);
 
             container.Register<IRepositoryAsync<Treatment>, Repository<Treatment>>(Lifestyle.Scoped);
