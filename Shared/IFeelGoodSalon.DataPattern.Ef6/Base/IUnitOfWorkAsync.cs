@@ -8,6 +8,6 @@ namespace IFeelGoodSalon.DataPattern.Ef6.Base
         Task<int> SaveChangesAsync();
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 
-        IRepositoryAsync<TEntity> RepositoryAsync<TEntity>() where TEntity : class, IObservableEntity;
+        IRepositoryAsync<TEntity> RepositoryAsync<TEntity>() where TEntity : class, IObservableEntity, new();
     }
 }

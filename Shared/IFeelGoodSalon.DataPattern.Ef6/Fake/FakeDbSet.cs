@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace IFeelGoodSalon.DataPattern.Ef6.Fake
 {
     public abstract class FakeDbSet<TEntity>
-        : DbSet<TEntity>, IDbSet<TEntity> where TEntity : ObservableEntity, new()
+        : DbSet<TEntity>, IDbSet<TEntity> where TEntity : class, IObservableEntity, new()
     {
         #region Fields
         private readonly ObservableCollection<TEntity> _items;

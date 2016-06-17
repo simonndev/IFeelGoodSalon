@@ -12,6 +12,6 @@ namespace IFeelGoodSalon.DataPattern.Ef6.Base
 
         int SaveChanges();
 
-        IRepository<TEntity> Repository<TEntity>() where TEntity : class, IObservableEntity;
+        IRepository<TEntity> Repository<TEntity>() where TEntity : class, IObservableEntity, new();
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.DataPattern.Ef6.Base
 {
-    public interface IBusinessService<TEntity> where TEntity : class, IObservableEntity
+    public interface IBusinessService<TEntity> where TEntity : class, IObservableEntity, new()
     {
         void Delete(object id);
         void Delete(TEntity entity);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.DataPattern.Ef6.Base
 {
-    public interface IQueryFluent<TEntity> where TEntity : class, IObservableEntity
+    public interface IQueryFluent<TEntity> where TEntity : class, IObservableEntity, new()
     {
         IQueryFluent<TEntity> Include(Expression<Func<TEntity, object>> expression);
         IQueryFluent<TEntity> OrderBy(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy);

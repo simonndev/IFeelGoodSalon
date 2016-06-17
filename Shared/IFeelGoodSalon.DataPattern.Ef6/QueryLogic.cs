@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace IFeelGoodSalon.DataPattern.Ef6
 {
-    public abstract class QueryLogic<TEntity> : IQueryLogic<TEntity> where TEntity : IObservableEntity
+    public abstract class QueryLogic<TEntity> : IQueryLogic<TEntity> where TEntity : class, IObservableEntity, new()
     {
         private Expression<Func<TEntity, bool>> _query;
 

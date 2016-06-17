@@ -93,7 +93,6 @@
     <Compile Include="Identity\SalonUserStore.cs" />
     <Compile Include="IFeelGoodSalonContext.cs" />
     <Compile Include="IFeelGoodSalonIdentityContext.cs" />
-    <Compile Include="Maps\Base\EntityMapBase.cs" />
     <Compile Include="Maps\DurationMap.cs" />
     <Compile Include="Maps\Identity\SalonRoleMap.cs" />
     <Compile Include="Maps\Identity\SalonUserClaimMap.cs" />

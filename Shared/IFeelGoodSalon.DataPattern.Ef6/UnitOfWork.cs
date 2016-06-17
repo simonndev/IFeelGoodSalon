@@ -101,7 +101,7 @@ namespace IFeelGoodSalon.DataPattern.Ef6
             return _dbContext.SaveChanges();
         }
 
-        public IRepository<TEntity> Repository<TEntity>() where TEntity : class, IObservableEntity
+        public IRepository<TEntity> Repository<TEntity>() where TEntity : class, IObservableEntity, new()
         {
             if (ServiceLocator.IsLocationProviderSet)
             {
@@ -121,7 +121,7 @@ namespace IFeelGoodSalon.DataPattern.Ef6
             return _dbContext.SaveChangesAsync(cancellationToken);
         }
 
-        public IRepositoryAsync<TEntity> RepositoryAsync<TEntity>() where TEntity : class, IObservableEntity
+        public IRepositoryAsync<TEntity> RepositoryAsync<TEntity>() where TEntity : class, IObservableEntity, new()
         {
             if (ServiceLocator.IsLocationProviderSet)
             {

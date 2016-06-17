@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.DataPattern.Ef6
 {
-    public class Repository<TEntity> : IRepositoryAsync<TEntity> where TEntity : class, IObservableEntity
+    public class Repository<TEntity> : IRepositoryAsync<TEntity> where TEntity : class, IObservableEntity, new()
     {
         #region Private Fields
 
@@ -115,7 +115,7 @@ namespace IFeelGoodSalon.DataPattern.Ef6
             return _dbSet;
         }
 
-        public IRepository<T> GetRepository<T>() where T : class, IObservableEntity
+        public IRepository<T> GetRepository<T>() where T : class, IObservableEntity, new()
         {
             return _unitOfWork.Repository<T>();
         }

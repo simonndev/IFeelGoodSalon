@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.DataPattern.Ef6
 {
-    public abstract class BusinessService<TEntity> : IBusinessService<TEntity> where TEntity : class, IObservableEntity
+    public abstract class BusinessService<TEntity> : IBusinessService<TEntity> where TEntity : class, IObservableEntity, new()
     {
         #region Private Fields
         private readonly IRepositoryAsync<TEntity> _repository;

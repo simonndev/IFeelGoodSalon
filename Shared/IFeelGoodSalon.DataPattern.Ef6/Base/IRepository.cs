@@ -5,14 +5,14 @@ using System.Linq.Expressions;
 
 namespace IFeelGoodSalon.DataPattern.Ef6.Base
 {
-    public interface IRepository<TEntity> where TEntity : class, IObservableEntity
+    public interface IRepository<TEntity> where TEntity : class, IObservableEntity, new()
     {
         void Delete(object id);
         void Delete(TEntity entity);
 
         TEntity Find(params object[] keyValues);
 
-        IRepository<T> GetRepository<T>() where T : class, IObservableEntity;
+        IRepository<T> GetRepository<T>() where T : class, IObservableEntity, new();
 
         void Insert(TEntity entity);
         void InsertRange(IEnumerable<TEntity> entities);

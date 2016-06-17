@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IFeelGoodSalon.Models
 {
-    public class Treatment : EntityBase
+    public class Treatment : EntityBase<int>
     {
         public Treatment()
         {

@@ -26,16 +26,25 @@ namespace IFeelGoodSalon.DataPattern.Ef6.Fake
             // there is no actual DbContext to sync with, please look at the Integration Tests for test that will run against an actual database.
         }
 
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken) { return new Task<int>(() => default(int)); }
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            return new Task<int>(() => default(int));
+        }
 
-        public Task<int> SaveChangesAsync() { return new Task<int>(() => default(int)); }
+        public Task<int> SaveChangesAsync()
+        {
+            return new Task<int>(() => default(int));
+        }
 
         public void Dispose() { }
 
-        public DbSet<T> Set<T>() where T : class { return (DbSet<T>)_fakeDbSets[typeof(T)]; }
+        public DbSet<T> Set<T>() where T : class
+        {
+            return (DbSet<T>)_fakeDbSets[typeof(T)];
+        }
 
         public void AddFakeDbSet<TEntity, TFakeDbSet>()
-            where TEntity : ObservableEntity, new()
+            where TEntity : class, IObservableEntity, new()
             where TFakeDbSet : FakeDbSet<TEntity>, IDbSet<TEntity>, new()
         {
             var fakeDbSet = Activator.CreateInstance<TFakeDbSet>();

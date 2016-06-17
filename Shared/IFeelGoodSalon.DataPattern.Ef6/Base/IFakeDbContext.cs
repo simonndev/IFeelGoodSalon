@@ -5,7 +5,9 @@ namespace IFeelGoodSalon.DataPattern.Ef6.Base
 {
     public interface IFakeDbContext : IObservableDbContextAsync
     {
-        void AddFakeDbSet<TEntity, TFakeDbSet>() where TEntity : ObservableEntity, new() where TFakeDbSet : FakeDbSet<TEntity>, IDbSet<TEntity>, new();
+        void AddFakeDbSet<TEntity, TFakeDbSet>()
+            where TEntity : class, IObservableEntity, new()
+            where TFakeDbSet : FakeDbSet<TEntity>, IDbSet<TEntity>, new();
 
         DbSet<T> Set<T>() where T : class;
     }

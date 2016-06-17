@@ -6,8 +6,4 @@ namespace IFeelGoodSalon.Models.Base
     {
         public TKey Id { get; }
     }
-
-    public abstract class EntityBase : EntityBase<int>
-    {
-    }
 }

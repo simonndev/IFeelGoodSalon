@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace IFeelGoodSalon.Models
 {
-    public class Duration : EntityBase, IValidatableObject
+    public class Duration : EntityBase<int>, IValidatableObject
     {
         public int Minute { get; set; }
 

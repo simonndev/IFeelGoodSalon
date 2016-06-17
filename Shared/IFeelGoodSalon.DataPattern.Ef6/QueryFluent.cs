@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IFeelGoodSalon.DataPattern.Ef6
 {
-    public sealed class QueryFluent<TEntity> : IQueryFluent<TEntity> where TEntity : class, IObservableEntity
+    public sealed class QueryFluent<TEntity> : IQueryFluent<TEntity> where TEntity : class, IObservableEntity, new()
     {
         #region Private Fields
         private readonly Expression<Func<TEntity, bool>> _expression;
