@@ -8,6 +8,9 @@ using IFeelGoodSalon.DataAccess;
 using IFeelGoodSalon.DataPattern.Ef6;
 using SimpleInjector.Extensions.ExecutionContextScoping;
 using IFeelGoodSalon.Models;
+using SimpleInjector.Integration.WebApi;
+using System.Runtime.Remoting.Messaging;
+using IFeelGoodSalon.BusinessLogic;
 
 [assembly: OwinStartup(typeof(IFeelGoodSalon.WebApi.Startup))]
 
@@ -50,6 +53,8 @@ namespace IFeelGoodSalon.WebApi
             container.Options.DefaultScopedLifestyle = new ExecutionContextScopeLifestyle();
 
             RegisterComponents(container);
+
+            config.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
 
             WebApiConfig.Register(config);
         }
@@ -98,6 +103,8 @@ namespace IFeelGoodSalon.WebApi
             container.Register<IUnitOfWorkAsync, UnitOfWork>(Lifestyle.Scoped);
 
             container.Register<IRepositoryAsync<Treatment>, Repository<Treatment>>(Lifestyle.Scoped);
+
+            container.Register<IUserService, UserService>(Lifestyle.Scoped);
 
             container.Verify();
         }

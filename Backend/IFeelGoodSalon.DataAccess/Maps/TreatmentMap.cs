@@ -11,9 +11,7 @@ namespace IFeelGoodSalon.DataAccess.Maps
             this.HasKey(treatment => treatment.Id);
 
             this.Property(treatment => treatment.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
             this.Property(treatment => treatment.Name).IsRequired().HasMaxLength(100);
-            this.Property(treatment => treatment.DurationMinute).IsRequired();
         }
     }
 }

@@ -5,18 +5,14 @@ using System;
 
 namespace IFeelGoodSalon.Models
 {
-
-    public class Staff : EntityBase<Guid>, ISoftDeleteEntity
+    public class Staff : PersonBase
     {
-        public bool IsAvailable { get; set; }
-
-        public bool IsDeleted { get; set; }
+        public DateTime HiredDate { get; set; }
 
         #region Navigation Properties
 
-        public virtual SalonUser ApplicationUser { get; set; }
+        public virtual User User { get; set; }
 
         #endregion
-
     }
 }

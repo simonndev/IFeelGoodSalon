@@ -1,42 +1,37 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using IFeelGoodSalon.DataPattern.Ef6;
 using System.Collections.Generic;
-using IFeelGoodSalon.DataPattern.Ef6;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IFeelGoodSalon.Models
 {
-    public class Duration : ObservableEntity, IValidatableObject
+    public class TreatmentDuration : ObservableEntity, IValidatableObject
     {
-        public Duration()
-        {
-            this.TreatmentDurations = new HashSet<TreatmentDuration>();
-        }
-
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        public int Minute { get; set; }
 
         public float DefaultPrice { get; set; }
         public float MonToThuPrice { get; set; }
         public float FriToSunPrice { get; set; }
         public float HolidayPrice { get; set; }
 
+        #region Foreign Keys
         public int TreatmentId { get; set; }
+        public int DurationId { get; set; }
+        #endregion
 
-        #region Navigation Properties
-
-        public virtual ICollection<TreatmentDuration> TreatmentDurations { get; set; }
-
+        #region Navigation
+        public virtual Treatment Treatment { get; set; }
+        public virtual Duration Duration { get; set; }
         #endregion
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (this.Minute <= 0)
+            if (this.DefaultPrice <= 0 || this.MonToThuPrice <= 0 || this.FriToSunPrice <= 0 || this.HolidayPrice <= 0)
             {
                 yield return new ValidationResult(
-                    "Treatment duration cannot be less than zero",
-                    new[] { "Minute" });
+                    "Price cannot be less than zero",
+                    new[] { "DefaultPrice", "MonToThuPrice", "FriToSunPrice", "HolidayPrice" });
             }
         }
     }

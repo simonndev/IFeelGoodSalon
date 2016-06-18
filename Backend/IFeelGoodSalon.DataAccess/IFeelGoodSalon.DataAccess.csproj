@@ -94,12 +94,12 @@
     <Compile Include="IFeelGoodSalonContext.cs" />
     <Compile Include="IFeelGoodSalonIdentityContext.cs" />
     <Compile Include="Maps\DurationMap.cs" />
-    <Compile Include="Maps\Identity\SalonRoleMap.cs" />
-    <Compile Include="Maps\Identity\SalonUserClaimMap.cs" />
-    <Compile Include="Maps\Identity\SalonUserLoginMap.cs" />
-    <Compile Include="Maps\Identity\SalonUserMap.cs" />
-    <Compile Include="Maps\Identity\SalonUserRoleMap.cs" />
+    <Compile Include="Maps\RoleMap.cs" />
+    <Compile Include="Maps\StaffMap.cs" />
+    <Compile Include="Maps\TreatmentDurationMap.cs" />
     <Compile Include="Maps\TreatmentMap.cs" />
+    <Compile Include="Maps\UserMap.cs" />
+    <Compile Include="Maps\UserRoleMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
