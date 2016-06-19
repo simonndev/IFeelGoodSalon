@@ -85,24 +85,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\IdentityUserExtensions.cs" />
-    <Compile Include="Extensions\IdentityValidationExtensions.cs" />
-    <Compile Include="Identity\SalonRoleStore.cs" />
-    <Compile Include="Identity\SalonSignInManager.cs" />
-    <Compile Include="Identity\SalonUserManager.cs" />
-    <Compile Include="Identity\SalonUserStore.cs" />
     <Compile Include="IFeelGoodSalonContext.cs" />
-    <Compile Include="IFeelGoodSalonIdentityContext.cs" />
+    <Compile Include="Maps\CustomerMap.cs" />
     <Compile Include="Maps\DurationMap.cs" />
     <Compile Include="Maps\RoleMap.cs" />
     <Compile Include="Maps\StaffMap.cs" />
+    <Compile Include="Maps\TreatmentCategoryMap.cs" />
     <Compile Include="Maps\TreatmentDurationMap.cs" />
     <Compile Include="Maps\TreatmentMap.cs" />
     <Compile Include="Maps\UserMap.cs" />
     <Compile Include="Maps\UserRoleMap.cs" />
+    <Compile Include="Migrations\201606190253150_Initial.cs" />
+    <Compile Include="Migrations\201606190253150_Initial.Designer.cs">
+      <DependentUpon>201606190253150_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\IFeelGoodSalon.Common\IFeelGoodSalon.Common.csproj">
+      <Project>{84631870-2c99-4bc8-baa5-325beb6af731}</Project>
+      <Name>IFeelGoodSalon.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Shared\IFeelGoodSalon.DataPattern.Ef6\IFeelGoodSalon.DataPattern.Ef6.csproj">
       <Project>{7906b408-5217-4838-954f-d946bea7f320}</Project>
       <Name>IFeelGoodSalon.DataPattern.Ef6</Name>
@@ -115,6 +119,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606190253150_Initial.resx">
+      <DependentUpon>201606190253150_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

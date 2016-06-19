@@ -7,7 +7,6 @@ using System.Web.Http;
 
 namespace IFeelGoodSalon.WebApi.Controllers
 {
-    [ApiAuthenticationFilter]
     public class AuthenticateController : ApiController
     {
         // GET api/<controller>

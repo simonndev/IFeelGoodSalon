@@ -12,17 +12,9 @@ namespace IFeelGoodSalon.Models
             this.TreatmentDurations = new HashSet<TreatmentDuration>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public int Minute { get; set; }
-
-        public float DefaultPrice { get; set; }
-        public float MonToThuPrice { get; set; }
-        public float FriToSunPrice { get; set; }
-        public float HolidayPrice { get; set; }
-
-        public int TreatmentId { get; set; }
 
         #region Navigation Properties
 

@@ -9,11 +9,7 @@ namespace IFeelGoodSalon.DataAccess.Maps
         public DurationMap()
         {
             this.HasKey(treatment => treatment.Id);
-
             this.Property(treatment => treatment.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-            this.Property(duration => duration.Minute).IsRequired();
-            this.Property(duration => duration.DefaultPrice).IsRequired();
         }
     }
 }

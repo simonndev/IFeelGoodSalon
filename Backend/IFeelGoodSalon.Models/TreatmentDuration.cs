@@ -7,13 +7,12 @@ namespace IFeelGoodSalon.Models
 {
     public class TreatmentDuration : ObservableEntity, IValidatableObject
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public float DefaultPrice { get; set; }
-        public float MonToThuPrice { get; set; }
-        public float FriToSunPrice { get; set; }
-        public float HolidayPrice { get; set; }
+        public decimal DefaultPrice { get; set; }
+        public decimal MonToThuPrice { get; set; }
+        public decimal FriToSunPrice { get; set; }
+        public decimal HolidayPrice { get; set; }
 
         #region Foreign Keys
         public int TreatmentId { get; set; }

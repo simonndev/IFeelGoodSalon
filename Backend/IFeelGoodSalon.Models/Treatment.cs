@@ -2,8 +2,6 @@
 using IFeelGoodSalon.DataPattern.Ef6.Base;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IFeelGoodSalon.Models
 {
@@ -24,8 +22,13 @@ namespace IFeelGoodSalon.Models
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
+        #region Foreign Keys
+        public int CategoryId { get; set; }
+        #endregion
+
         #region Navigation Properties
 
+        public virtual TreatmentCategory Category { get; set; }
         public virtual ICollection<TreatmentDuration> TreatmentDurations { get; set; }
 
         #endregion
