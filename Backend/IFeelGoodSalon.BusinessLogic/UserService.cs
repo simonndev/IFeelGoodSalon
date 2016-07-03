@@ -1,24 +1,28 @@
-﻿using IFeelGoodSalon.Common.Security;
-using IFeelGoodSalon.DataPattern.Ef6;
-using IFeelGoodSalon.DataPattern.Ef6.Base;
+﻿using IFeelGoodSalon.BusinessLogic.Base;
+using IFeelGoodSalon.Common.Security;
+using IFeelGoodSalon.Data.Base;
+using IFeelGoodSalon.Data.BusinessLogic.Base;
+using IFeelGoodSalon.Data.Repository.Base;
 using IFeelGoodSalon.Models;
 using System;
 using System.Linq;
 
 namespace IFeelGoodSalon.BusinessLogic
 {
-    public interface IUserService : IBusinessService<User>
+    public interface IUserService : IBusinessLogicServiceAsync<User>
     {
         bool Authenticate(string username, string password, out Guid userId);
     }
 
-    public class UserService : BusinessService<User>, IUserService
+    public class UserService : BusinessLogicService<User>, IUserService
     {
+        private readonly IDbContextScopeFactory _dbContextScopeFactory;
         private readonly IRepositoryAsync<User> _repository;
 
-        public UserService(IRepositoryAsync<User> repository)
-            : base(repository)
+        public UserService(IDbContextScopeFactory dbContextScopeFactory, IRepositoryAsync<User> repository)
+            : base(dbContextScopeFactory, repository)
         {
+            this._dbContextScopeFactory = dbContextScopeFactory;
             this._repository = repository;
         }
 
@@ -32,7 +36,7 @@ namespace IFeelGoodSalon.BusinessLogic
             }
 
             // 1. Retrieve user using the specific username.
-            var user = this._repository.Queryable().SingleOrDefault(u => u.Username == username);
+            var user = this.Queryable().SingleOrDefault(u => u.Username == username);
             if (user != null)
             {
                 // 2. Compare password using BCrypt.Net

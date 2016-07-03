@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace IFeelGoodSalon.Models
 {
-    public class User : ObservableEntity, IActivableEntity
+    public class User : IActivableEntity
     {
         public User()
         {

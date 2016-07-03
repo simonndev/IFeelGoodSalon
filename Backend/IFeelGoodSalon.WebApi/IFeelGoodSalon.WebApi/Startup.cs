@@ -1,16 +1,16 @@
-﻿using Microsoft.Owin;
-using Owin;
-using System.Web.Http;
-using Microsoft.Owin.Cors;
-using SimpleInjector;
-using IFeelGoodSalon.DataPattern.Ef6.Base;
-using IFeelGoodSalon.DataAccess;
-using IFeelGoodSalon.DataPattern.Ef6;
-using SimpleInjector.Extensions.ExecutionContextScoping;
+﻿using IFeelGoodSalon.BusinessLogic;
+using IFeelGoodSalon.Data;
+using IFeelGoodSalon.Data.Base;
+using IFeelGoodSalon.Data.Repository.Base;
+using IFeelGoodSalon.DataAccess.Repositories.Base;
 using IFeelGoodSalon.Models;
+using Microsoft.Owin;
+using Microsoft.Owin.Cors;
+using Owin;
+using SimpleInjector;
+using SimpleInjector.Extensions.ExecutionContextScoping;
 using SimpleInjector.Integration.WebApi;
-using System.Runtime.Remoting.Messaging;
-using IFeelGoodSalon.BusinessLogic;
+using System.Web.Http;
 
 [assembly: OwinStartup(typeof(IFeelGoodSalon.WebApi.Startup))]
 
@@ -27,7 +27,6 @@ namespace IFeelGoodSalon.WebApi
         /// </remarks>
         public void Configuration(IAppBuilder app)
         {
-
             HttpConfiguration config = new HttpConfiguration();
 
             app.UseCors(CorsOptions.AllowAll);
@@ -99,12 +98,15 @@ namespace IFeelGoodSalon.WebApi
         /// <param name="container"></param>
         private static void RegisterComponents(Container container)
         {
-            container.Register<IObservableDbContextAsync, IFeelGoodSalonContext>(Lifestyle.Scoped);
-            container.Register<IUnitOfWorkAsync, UnitOfWork>(Lifestyle.Scoped);
+            container.Register<IDbContextFactory, DefaultDbContextFactory>(Lifestyle.Scoped);
+            container.Register<IDbContextScopeFactory, DbContextScopeFactory>(Lifestyle.Scoped);
+            container.Register<IAmbientDbContextLocator, AmbientDbContextLocator>(Lifestyle.Scoped);
 
+            container.Register<IRepositoryAsync<User>, Repository<User>>(Lifestyle.Scoped);
             container.Register<IRepositoryAsync<Treatment>, Repository<Treatment>>(Lifestyle.Scoped);
 
             container.Register<IUserService, UserService>(Lifestyle.Scoped);
+            container.Register<ITreatmentService, TreatmentService>(Lifestyle.Scoped);
 
             container.Verify();
         }

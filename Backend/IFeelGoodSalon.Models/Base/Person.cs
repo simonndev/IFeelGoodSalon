@@ -9,23 +9,13 @@ namespace IFeelGoodSalon.Models.Base
 {
     public abstract class PersonBase : ObservableEntity, ISoftDeleteEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public Guid Id { get; set; }
 
-        [Required]
-        [MaxLength(20, ErrorMessage = "First name cannot be longer than 50 characters.")]
-        [Display(Name = "First Name")]
         public string FirstName { get; set; }
-
-        [MaxLength(60)]
         public string SurName { get; set; }
-
-        [Required]
-        [MaxLength(20)]
-        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        public string NickName { get; set; }
 
-        [Display(Name = "Full Name")]
         public string FullName
         {
             get
@@ -39,14 +29,9 @@ namespace IFeelGoodSalon.Models.Base
             }
         }
 
-        [Display(Name = "Nick Name")]
-        public string NickName { get; set; }
+        
         public string Initial { get; set; }
-
-        [MaxLength(15)]
         public string HomePhone { get; set; }
-
-        [MaxLength(15)]
         public string CellPhone { get; set; }
 
         public bool IsDeleted { get; set; }

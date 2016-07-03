@@ -179,9 +179,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Shared\IFeelGoodSalon.DataPattern.Ef6\IFeelGoodSalon.DataPattern.Ef6.csproj">
-      <Project>{7906B408-5217-4838-954F-D946BEA7F320}</Project>
-      <Name>IFeelGoodSalon.DataPattern.Ef6</Name>
+    <ProjectReference Include="..\..\..\Shared\IFeelGoodSalon.Common\IFeelGoodSalon.Common.csproj">
+      <Project>{84631870-2c99-4bc8-baa5-325beb6af731}</Project>
+      <Name>IFeelGoodSalon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\IFeelGoodSalon.Data\IFeelGoodSalon.Data.csproj">
+      <Project>{3e8caf34-f8da-4b65-9f60-b2d085048925}</Project>
+      <Name>IFeelGoodSalon.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\IFeelGoodSalon.BusinessLogic\IFeelGoodSalon.BusinessLogic.csproj">
       <Project>{581941D8-ED6D-4FDB-AC84-9F921D476177}</Project>

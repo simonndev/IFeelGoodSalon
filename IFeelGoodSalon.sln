@@ -43,6 +43,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFeelGoodSalon.BusinessLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFeelGoodSalon.Common", "Shared\IFeelGoodSalon.Common\IFeelGoodSalon.Common.csproj", "{84631870-2C99-4BC8-BAA5-325BEB6AF731}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{5C18D3C5-0068-405A-832C-40CD17E0D348}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "i-feel-good-salon", "Frontend\Web\i-feel-good-salon\", "{1D8CDFC0-B6B5-4244-ADB5-A72EEEE78804}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61183"
+		Debug.AspNetCompiler.PhysicalPath = "Frontend\Web\i-feel-good-salon\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61183\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61183"
+		Release.AspNetCompiler.PhysicalPath = "Frontend\Web\i-feel-good-salon\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61183\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61183"
+		SlnRelativePath = "Frontend\Web\i-feel-good-salon\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFeelGoodSalon.Data", "Shared\IFeelGoodSalon.Data\IFeelGoodSalon.Data.csproj", "{3E8CAF34-F8DA-4B65-9F60-B2D085048925}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +122,13 @@ Global
 		{84631870-2C99-4BC8-BAA5-325BEB6AF731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84631870-2C99-4BC8-BAA5-325BEB6AF731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84631870-2C99-4BC8-BAA5-325BEB6AF731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8CDFC0-B6B5-4244-ADB5-A72EEEE78804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8CDFC0-B6B5-4244-ADB5-A72EEEE78804}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8CDFC0-B6B5-4244-ADB5-A72EEEE78804}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3E8CAF34-F8DA-4B65-9F60-B2D085048925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8CAF34-F8DA-4B65-9F60-B2D085048925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8CAF34-F8DA-4B65-9F60-B2D085048925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8CAF34-F8DA-4B65-9F60-B2D085048925}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,5 +151,8 @@ Global
 		{BF8F83F0-F6E4-4425-B17A-62E5FB172BC0} = {1DAAF1E5-4EF8-4F1E-8B65-40A9C7AB3BCE}
 		{581941D8-ED6D-4FDB-AC84-9F921D476177} = {B043341B-A205-43D1-B50A-AE5E7DF8D508}
 		{84631870-2C99-4BC8-BAA5-325BEB6AF731} = {3EAC0834-6DC9-4233-9051-0375C413C38C}
+		{5C18D3C5-0068-405A-832C-40CD17E0D348} = {D1A7750C-8A2D-47B7-8815-A3AD10674DFC}
+		{1D8CDFC0-B6B5-4244-ADB5-A72EEEE78804} = {5C18D3C5-0068-405A-832C-40CD17E0D348}
+		{3E8CAF34-F8DA-4B65-9F60-B2D085048925} = {3EAC0834-6DC9-4233-9051-0375C413C38C}
 	EndGlobalSection
 EndGlobal

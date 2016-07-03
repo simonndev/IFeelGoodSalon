@@ -1,4 +1,4 @@
-﻿using IFeelGoodSalon.DataPattern.Ef6.Base;
+﻿using IFeelGoodSalon.BusinessLogic;
 using IFeelGoodSalon.Models;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -11,12 +11,10 @@ namespace IFeelGoodSalon.WebApi.Controllers
 {
     public class TreatmentsController : ApiController
     {
-        private readonly IUnitOfWorkAsync _unitOfWork;
-        private readonly IBusinessService<Treatment> _businessService;
+        private readonly ITreatmentService _businessService;
 
-        public TreatmentsController(IUnitOfWorkAsync unitOfWork, IBusinessService<Treatment> businessService)
+        public TreatmentsController(ITreatmentService businessService)
         {
-            this._unitOfWork = unitOfWork;
             this._businessService = businessService;
         }
 
@@ -52,12 +50,10 @@ namespace IFeelGoodSalon.WebApi.Controllers
             {
                 return BadRequest();
             }
-            
-            treatment.ModelState = EntityModelState.Modified;
 
             try
             {
-                await this._unitOfWork.SaveChangesAsync();
+                await _businessService.UpdateAsync(treatment);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -83,11 +79,9 @@ namespace IFeelGoodSalon.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            this._businessService.Insert(treatment);
-
             try
             {
-                await this._unitOfWork.SaveChangesAsync();
+                await _businessService.InsertAsync(treatment);
             }
             catch (DbUpdateException)
             {
@@ -114,9 +108,14 @@ namespace IFeelGoodSalon.WebApi.Controllers
                 return NotFound();
             }
 
-            this._businessService.Delete(treatment);
-
-            await this._unitOfWork.SaveChangesAsync();
+            try
+            {
+                await this._businessService.DeleteAsync(treatment);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw;
+            }
 
             return Ok(treatment);
         }
@@ -125,7 +124,7 @@ namespace IFeelGoodSalon.WebApi.Controllers
         {
             if (disposing)
             {
-                this._unitOfWork.Dispose();
+                this._businessService.Dispose();
             }
 
             base.Dispose(disposing);

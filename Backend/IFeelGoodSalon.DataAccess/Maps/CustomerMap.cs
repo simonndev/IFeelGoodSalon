@@ -5,26 +5,25 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace IFeelGoodSalon.DataAccess.Maps
 {
-    public class UserMap: EntityTypeConfiguration<User>
+    public class CustomerMap : EntityTypeConfiguration<Customer>
     {
-        public UserMap()
+        public CustomerMap()
         {
             this.HasKey(u => u.Id);
 
-            this.Property(u => u.Username)
+            this.Property(s => s.FirstName)
                 .IsRequired()
                 .HasMaxLength(20)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IDX_User_Username") { IsUnique = true }));
+                    new IndexAnnotation(new IndexAttribute("IDX_Customer_Name", 1)));
 
-            this.Property(u => u.Email)
-                .HasMaxLength(255)
+            this.Property(s => s.LastName)
+                .IsRequired()
+                .HasMaxLength(20)
                 .HasColumnAnnotation(
                     IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IDX_User_Email") { IsUnique = true }));
-
-            this.Property(u => u.PasswordHashed).IsRequired();
+                    new IndexAnnotation(new IndexAttribute("IDX_Customer_Name", 2)));
         }
     }
 }

@@ -5,15 +5,14 @@ using System.Collections.Generic;
 
 namespace IFeelGoodSalon.Models
 {
-    public class Treatment : ISoftDeleteEntity
+    public class TreatmentCategory : ObservableEntity, ISoftDeleteEntity
     {
-        public Treatment()
+        public TreatmentCategory()
         {
-            this.TreatmentDurations = new HashSet<TreatmentDuration>();
+            this.Treatments = new HashSet<Treatment>();
         }
 
         public int Id { get; set; }
-
         public string Name { get; set; }
         public string Description { get; set; }
 
@@ -22,14 +21,9 @@ namespace IFeelGoodSalon.Models
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
 
-        #region Foreign Keys
-        public int CategoryId { get; set; }
-        #endregion
-
         #region Navigation Properties
 
-        public virtual TreatmentCategory Category { get; set; }
-        public virtual ICollection<TreatmentDuration> TreatmentDurations { get; set; }
+        public virtual ICollection<Treatment> Treatments { get; set; }
 
         #endregion
     }

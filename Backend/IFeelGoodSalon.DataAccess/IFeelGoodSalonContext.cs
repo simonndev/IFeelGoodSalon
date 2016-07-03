@@ -1,12 +1,10 @@
 ﻿using IFeelGoodSalon.DataAccess.Maps;
-using IFeelGoodSalon.DataPattern.Ef6;
 using IFeelGoodSalon.Models;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace IFeelGoodSalon.DataAccess
 {
-    public class IFeelGoodSalonContext : ObservableDbContext
+    public class IFeelGoodSalonContext : DbContext
     {
         public IFeelGoodSalonContext()
             : base("Name = IFeelGoodSalonContext")
@@ -28,8 +26,6 @@ namespace IFeelGoodSalon.DataAccess
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Configurations.Add(new StaffMap());
             modelBuilder.Configurations.Add(new UserMap());
@@ -53,6 +49,10 @@ namespace IFeelGoodSalon.DataAccess
                 .HasRequired(u => u.Staff)
                 .WithOptional(s => s.User)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
+                .HasOptional(u => u.Staff)
+                .WithOptionalDependent(s => s.User);
 
             modelBuilder.Entity<UserRole>()
                 .HasRequired(ur => ur.User)
